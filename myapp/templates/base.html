@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    {% block head %}
+    <head>
+        <title>
+            {% block title %}
+            Hello {{ name }}
+            {% endblock %}
+        </title>
+    </head>
+    {% endblock %}
+    <body>
+        {% block navbar %}
+        <h1>Hello {{ name|capitalize }}</h1>
+        {% endblock %}
+        {% block content %}{% endblock %}
+        {% block footer %}
+        <footer>
+            <img style="width: 200px;" src="/static/img/100.jpg" alt="cat http 100">
+        </footer>
+        {% endblock %}
+    </body>
+</html>

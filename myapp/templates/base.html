@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
-    {% block head %}
     <head>
-        <title>
-            {% block title %}
-            Hello {{ name }}
-            {% endblock %}
-        </title>
+        <title>Responsive Excercise</title>
+        <meta  charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    {% endblock %}
     <body>
-        {% block navbar %}
-        <h1>Hello {{ name|capitalize }}</h1>
-        {% endblock %}
+        <header>
+            <p>Cody Pauley</p>
+            <ul>
+                <li>Home</li>
+                <li>|</li>
+                <li>Projects</li>
+                <li>|</li>
+                <li>Blog</li>
+            </ul>
+        </header>
         {% block content %}{% endblock %}
-        {% block footer %}
         <footer>
-            <img style="width: 200px;" src="/static/img/100.jpg" alt="cat http 100">
+            <h1>Footer</h1>
         </footer>
-        {% endblock %}
     </body>
 </html>

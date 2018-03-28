@@ -70,6 +70,7 @@ footer {
     }
     .content-title{
         align-items:center;
+        flex-wrap: nowrap;
     }
     .content {
         flex-direction:column;

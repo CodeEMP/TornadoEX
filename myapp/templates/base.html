@@ -7,19 +7,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        {% block header %}
         <header>
             <p>Cody Pauley</p>
             <ul>
-                <li>Home</li>
+                <li><a href="http://159.65.227.25:8080">Home</a></li>
                 <li>|</li>
                 <li>Projects</li>
                 <li>|</li>
                 <li>Blog</li>
             </ul>
         </header>
+        {% endblock %}
         {% block content %}{% endblock %}
+        {% block footer %}
         <footer>
-            <h1>Footer</h1>
+            <a href="form" style='font-size: 2.2em; color: Blue; padding: 10px;'>Contact me!</a>
         </footer>
+        {% endblock %}
     </body>
 </html>

@@ -29,8 +29,9 @@ class FormHandler(TemplateHandler):
     self.set_header(
       'Cache-Control',
       'no-store, no-cache, must-revalidate, max-age=0')
-    
     self.render_template("form.html")
+  
+  
     
 def make_app():
   return tornado.web.Application([

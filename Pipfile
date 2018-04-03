@@ -13,3 +13,4 @@ url = "https://pypi.python.org/simple"
 
 tornado = "*"
 "jinja2" = "*"
+"boto3" = "*"

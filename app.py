@@ -30,12 +30,12 @@ class FormHandler(TemplateHandler):
       'Cache-Control',
       'no-store, no-cache, must-revalidate, max-age=0')
     
-    self.render_template("index.html")
+    self.render_template("form.html")
     
 def make_app():
   return tornado.web.Application([
     (r"/", MainHandler),
-    (r"/", FormHandler),
+    (r"/form", FormHandler),
     (
       r"/static/(.*)",
       tornado.web.StaticFileHandler,
@@ -48,4 +48,4 @@ if __name__ == "__main__":
   PORT = int(os.environ.get('PORT', '8080'))
   app = make_app()
   app.listen(PORT)
-tornado.ioloop.IOLoop.current().start()
+  tornado.ioloop.IOLoop.current().start()

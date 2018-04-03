@@ -63,6 +63,23 @@ footer {
     justify-content: center;
     background-color: purple;
 }
+.form-box {
+    padding-left: 20px;
+    padding-bottom: 20px;
+    font-size: 1.5em;
+    background-color: lightblue;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.form-input{
+    flex: 3;
+}
+small {
+    font-size: .6em;
+    color: gray;
+}
+
 @media (max-width: 900px) {
     header {
         align-items: center;

@@ -3,19 +3,21 @@
 <div class="form-box">
     <h2>Send me an email!</h2>
     <br><br><br>
-    <form class="formgrp" action="/form" method="GET">
+    <form class="formgrp" action="/form" method="POST">
         <label for="">  Name</label>
-        <input class="form-input" type="text" name="name" placeholder="Enter Name"/><br>
+        <input class="form-input" type="text" name="name" placeholder="Enter Name*" required><br>
         <small>I won't remember it.</small>
         <br><br>
         <label for="">  Email</label>
-        <input class="form-input" type="text" name="email" placeholder="Enter Email"/><br>
+        <input class="form-input" type="email" name="email" placeholder="Enter Email*" required><br>
         <small>I solomnly swear I won't spam you.</small>
         <br><br>
         <label for="">  Comment</label>
         <br>
         <textarea type="textarea" name="comment" placeholder="Tell me what"></textarea>
-        <br><br>
+        <br>
+        <small>*Required Field</small>
+        <br>
         <label for="">  Rock, Paper, or Scissors?</label>
         <br>
         <select name="rps">

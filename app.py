@@ -35,8 +35,6 @@ class MainHandler(TemplateHandler):
     
 class PageHandler(TemplateHandler):
   def get(self, page):
-    if page == 'form-complete':
-      pass
     page = page + '.html'
     self.set_header(
       'Cache-Control',

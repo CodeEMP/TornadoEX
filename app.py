@@ -110,6 +110,7 @@ def make_app():
   return tornado.web.Application([
     (r"/", MainHandler),
     (r"/form", FormHandler),
+    (r"/(projects)", PageHandler),
     (r"/(form-complete)", PageHandler),
     (r"/tipcalculator", tipHandler),
     (

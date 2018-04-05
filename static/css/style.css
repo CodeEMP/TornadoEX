@@ -1,4 +1,4 @@
-body {
+body, html, .content {
     margin:0;
     padding:0;
     display: flex;
@@ -27,7 +27,7 @@ header > li {
 .banner {
     display: flex;
     justify-content: center;
-    height: 275px;
+    min-height: 275px;
     align-items: center;
     background-color: blue;
 }
@@ -38,11 +38,14 @@ header > li {
 }
 .content {
     display:flex;
+    flex-direction: row;
     background-color: lightblue;
     align-items: flex-start;
     flex-wrap: wrap;
     justify-content: space-around;
     font-size: 1.2em;
+    flex: 1;
+    min-height: 500px;
 }
 .col-3 > ul {
     flex: 1;

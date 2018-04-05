@@ -81,11 +81,37 @@ class FormHandler(TemplateHandler):
       'no-store, no-cache, must-revalidate, max-age=0')
     self.render_template("form.html") 
     
+    
+class tipHandler(TemplateHandler):
+  def get(self):
+    self.set_header(
+      'Cache-Control',
+      'no-store, no-cache, must-revalidate, max-age=0')
+    self.render_template("tipcalculator.html")
+  
+  def post(self):
+    bill = self.get_body_argument('bill', None)
+    service = self.get_body_argument('service', 'Good')
+    split = self.get_body_argument('split', 1)
+    tip = 0
+    if bill is None:
+      pass
+    else:
+      if "Good" in service:
+        tip = bill * .2
+      elif "Fair" in service:
+         tip = bill * .15
+      elif "Bad" in service:
+          tip = bill * .1
+      total = tip + bill
+    self.render_template("tipcalculator.html") 
+
 def make_app():
   return tornado.web.Application([
     (r"/", MainHandler),
     (r"/form", FormHandler),
     (r"/(form-complete)", PageHandler),
+    (r"/tipcalculator", tipHandler),
     (
       r"/static/(.*)",
       tornado.web.StaticFileHandler,

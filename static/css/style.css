@@ -3,6 +3,7 @@ body {
     padding:0;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 header {
     display: flex;
@@ -69,7 +70,7 @@ footer {
     font-size: 1.5em;
     background-color: lightblue;
     display: flex;
-    flex: 1;
+    flex: auto;
     flex-direction: column;
 }
 .form-input{
@@ -78,6 +79,16 @@ footer {
 small {
     font-size: .6em;
     color: gray;
+}
+.result-box{
+    display:flex;
+    flex-direction: column;
+    background-color: lightblue;
+    flex: auto;
+    height: 400px;
+}
+.return {
+    padding-top:40px;
 }
 
 @media (max-width: 900px) {

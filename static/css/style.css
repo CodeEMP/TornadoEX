@@ -45,7 +45,6 @@ header > li {
     justify-content: space-around;
     font-size: 1.2em;
     flex: 1;
-    min-height: 500px;
 }
 .col-3 > ul {
     flex: 1;

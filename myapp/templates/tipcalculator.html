@@ -5,19 +5,20 @@
     <br><br><br>
     <form class="formgrp" action="/tipcalculator" method="POST">
         <label for="">  Bill</label>
-        <input class="form-input" type="text" name="bil" placeholder="Enter your bill" required><br><br>
+        <input class="form-input" type="text" name="bill" placeholder="Enter your bill" required><br><br>
         <label for =""> Level of Service</label><br>
         <select name='service'>
-            <option></option>
             <option>Good</option>
             <option>Fair</option>
             <option>Bad</option>
         </select><br><br>
         <label for="">  Split how many ways?</label>
-        <input class="form-input" type="text" name="split" placeholder="Number of people"><br>
+        <input class="form-input" type="text" name="split" placeholder="Number of people" value=1><br>
         <br><br>
         <button class="submitbutton">Submit</button><br><br>
     </form>
+    {% block result %}
+    {% endblock %}
 </div>
 {% endblock %}
 {% block footer %}

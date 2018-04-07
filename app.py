@@ -36,9 +36,12 @@ def send_email(name, comment, rps):
         Source='CPGameface@gmail.com',
       )
 class TemplateHandler(tornado.web.RequestHandler):
-  def render_template (self, tpl):
+  def render_template (self, tpl, context=None):
+    if context is None:
+      context = {}
+      
     template = ENV.get_template(tpl)
-    self.write(template.render())
+    self.write(template.render(context))
 
 class MainHandler(TemplateHandler):
   def get(self):
@@ -90,9 +93,9 @@ class tipHandler(TemplateHandler):
     self.render_template("tipcalculator.html")
   
   def post(self):
-    bill = self.get_body_argument('bill', None)
+    bill = float(self.get_body_argument('bill', '0'))
     service = self.get_body_argument('service', 'Good')
-    split = self.get_body_argument('split', 1)
+    split = int(self.get_body_argument('split', 1))
     tip = 0
     if bill is None:
       pass
@@ -104,7 +107,23 @@ class tipHandler(TemplateHandler):
       elif "Bad" in service:
           tip = bill * .1
       total = tip + bill
+      if split > 1:
+        total = round(total/split)
+      self.redirect('/totaltip?tip={}&total={}'.format(tip,total))
     self.render_template("tipcalculator.html") 
+    
+class TotaltipHandeler(TemplateHandler):
+  def get(self):
+    self.set_header(
+      'Cache-Control',
+      'no-store, no-cache, must-revalidate, max-age=0')
+    tip = self.get_query_argument('tip', '0')
+    total = self.get_query_argument('total', '0')
+    context = {
+      'tip' : tip,
+      'total' : total
+    }
+    self.render_template("totaltip.html", context)
 
 def make_app():
   return tornado.web.Application([
@@ -113,6 +132,7 @@ def make_app():
     (r"/(projects)", PageHandler),
     (r"/(form-complete)", PageHandler),
     (r"/tipcalculator", tipHandler),
+    (r"/totaltip", TotaltipHandeler),
     (
       r"/static/(.*)",
       tornado.web.StaticFileHandler,
